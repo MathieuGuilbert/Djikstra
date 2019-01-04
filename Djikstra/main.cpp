@@ -7,14 +7,21 @@ using namespace std;
 
 int main()
 {
-    Graphe<int> g(); //ça devrait marcher
+    Graphe<int> g; //ça devrait marcher
 
     //Sommet<float> s(2,5.0);  MARCHE PAS urement à cause de c++11  (same avec stirng
-    Sommet<unsigned int> s(1,6);
+    Sommet<int> s(1,6);
 
     cout<<s<<endl;
 
-	/*vector< pair<int,int> > v1=vector< pair<int,int> >();
+    vector< pair<int,Sommet<int> > > v=vector< pair<int,Sommet<int> > >();
+    g.add_sommet(s, v);
+
+    cout<<g<<endl;
+
+	/*
+	Graphe g=Graphe();
+	vector< pair<int,int> > v1=vector< pair<int,int> >();
 	g.add_sommet(1,v1);
 	vector< pair<int,int> > v2=vector< pair<int,int> >();
 

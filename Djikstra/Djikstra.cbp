@@ -32,11 +32,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="graphe.cpp" />
 		<Unit filename="graphe.hpp" />
 		<Unit filename="graphe.tpp" />
 		<Unit filename="main.cpp" />
-		<Unit filename="sommet.cpp" />
 		<Unit filename="sommet.hpp" />
 		<Unit filename="sommet.tpp" />
 		<Extensions>

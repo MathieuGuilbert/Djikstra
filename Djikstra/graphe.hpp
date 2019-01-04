@@ -18,7 +18,9 @@ private:                                  //poids, sommet
 
 
 public:
-	Graphe();
+	Graphe(){
+        this->liste= vector< pair <Sommet<T>, vector< pair<int,Sommet<T> > > > >();
+    }
 
 	void add_sommet(Sommet<T>,vector< pair<int,Sommet<T> > > voisins);
 	void add_arrete(Sommet<T> source, pair<int,Sommet<T> > arrete);
@@ -26,8 +28,7 @@ public:
 	void suppr_sommet(Sommet<T> sommet);
 	void suppr_arrete(Sommet<T> source, pair<int, Sommet<T> > arrete);
 
-
-	//friend std::ostream & operator << ( std::ostream& ost , Graphe const & g );
+	template <T> friend std::ostream & operator << ( std::ostream& ost , Graphe<T> const & g );
 
 
 	~Graphe();

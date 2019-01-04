@@ -7,11 +7,11 @@
 
 using namespace std ;
 
-template<class T>
+/*template<class T>
 Graphe<T>::Graphe()
 {
     this->liste= vector< pair <Sommet<T>, vector< pair<int,Sommet<T> > > > >();
-}
+}*/
 
 template<class T>
 void Graphe<T>::add_sommet(Sommet<T> i,vector< pair<int,Sommet<T> > > voisins)
@@ -89,8 +89,22 @@ void Graphe<T>::suppr_arrete(Sommet<T> source, pair<int,Sommet<T> > arrete)
     cout<< "ERREUR: la source n'existe pas" << endl;
 }
 
+template <class T>
+std :: ostream & operator << (std :: ostream & ost , Graphe<T> const & g){
+    for(int i=0;i<g.liste.size(); i++){
+        vector< pair<int,Sommet<T> > > v=(g.liste[i]).second;
+        for(int j=0;j<v.size(); j++){
+            ost << "( Source : " << g.liste[i].first << "-> Poid: " << v[j].first << " -> Destination: " << v[j].second << "\n ";
+        }
+    }
+    return ost;
+}
 
-/*std :: ostream & operator << (std :: ostream & ost , Graphe const & g) {
+
+
+
+
+/*std :: ostream & operator << (std :: ostream & ost , Graphe const & g) {  //version TD5
 
 	ofstream fichier("test.txt", ios::out | ios::trunc);  // ouverture en écriture avec effacement du fichier ouvert
 

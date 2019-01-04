@@ -9,14 +9,20 @@ int main()
 {
     Graphe<int> g; //ça devrait marcher
 
-    //Sommet<float> s(2,5.0);  MARCHE PAS urement à cause de c++11  (same avec stirng
+    //Sommet<float> s(2,5.0);
     Sommet<int> s(1,6);
+    Sommet<int> s1(1,3);
 
+	cout<<"Affichage des sommets : "<<endl;
     cout<<s<<endl;
+    cout<<s1<<endl;
 
-    vector< pair<int,Sommet<int> > > v=vector< pair<int,Sommet<int> > >();
+	pair<int,Sommet<int> > p;
+	p.first=1; p.second=s1;
+    vector< pair<int,Sommet<int> > > v; v.push_back(p);
     g.add_sommet(s, v);
 
+	cout<<"Affichage de G : "<<endl;
     cout<<g<<endl;
 
 	/*

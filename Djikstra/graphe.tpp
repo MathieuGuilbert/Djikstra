@@ -91,18 +91,14 @@ void Graphe<T>::suppr_arrete(Sommet<T> source, pair<int,Sommet<T> > arrete)
 
 template <class T>
 std :: ostream & operator << (std :: ostream & ost , Graphe<T> const & g){
-    for(int i=0;i<g.liste.size(); i++){
+    for(unsigned int i=0;i<g.liste.size(); i++){
         vector< pair<int,Sommet<T> > > v=(g.liste[i]).second;
-        for(int j=0;j<v.size(); j++){
+        for(unsigned int j=0;j<v.size(); j++){
             ost << "( Source : " << g.liste[i].first << "-> Poid: " << v[j].first << " -> Destination: " << v[j].second << "\n ";
         }
     }
     return ost;
 }
-
-
-
-
 
 /*std :: ostream & operator << (std :: ostream & ost , Graphe const & g) {  //version TD5
 

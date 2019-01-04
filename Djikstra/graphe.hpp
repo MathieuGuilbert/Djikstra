@@ -1,4 +1,3 @@
-
 # ifndef __GRAPHE_HPP
 # define __GRAPHE_HPP
 
@@ -7,9 +6,12 @@
 #include <vector>
 # include <assert.h>
 # include "sommet.hpp"
-
-
 using namespace std ;
+
+template<class T>
+class Graphe;
+template<class T>
+std::ostream& operator<<(std::ostream&, const Graphe<T>&);
 
 template<class T> class Graphe {
 
@@ -28,8 +30,7 @@ public:
 	void suppr_sommet(Sommet<T> sommet);
 	void suppr_arrete(Sommet<T> source, pair<int, Sommet<T> > arrete);
 
-	template <T> friend std::ostream & operator << ( std::ostream& ost , Graphe<T> const & g );
-
+	friend std::ostream & operator<<  <>( std::ostream& ost , Graphe<T> const & g );
 
 	~Graphe();
 };

@@ -37,6 +37,10 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="sommet.hpp" />
 		<Unit filename="sommet.tpp" />
+		<Unit filename="tas.hpp" />
+		<Unit filename="tas.tpp" />
+		<Unit filename="tas_id.hpp" />
+		<Unit filename="tas_id.tpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

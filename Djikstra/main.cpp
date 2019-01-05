@@ -2,6 +2,7 @@
 # include "graphe.hpp"
 # include "sommet.hpp"
 # include "tas.hpp"
+# include "tas_id.hpp"
 
 
 using namespace std;
@@ -28,10 +29,15 @@ int main()
     cout<<g<<endl;
 
     //test tas
-    Tas<int> t(3);
-    t.add(4);
-    cout<<t.extraireMin()<<endl;
-    cout<<t.extraireMin()<<endl;
+    Tas<char> t('a');
+    t.add('c');
+    t.add('b');
+    //t.add(1);
+
+    if(t.recherche('c',0)){
+        cout<<"Prem "<<t.extraireMin()<<endl;
+    }
+    cout<<"deux "<<t.extraireMin()<<endl;
 
 
 }

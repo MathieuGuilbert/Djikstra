@@ -10,7 +10,7 @@ using namespace std ;
 template<class V> class Tas {
 
 private:
-   vector< V > tab;
+   vector< V > tab; //tableau des données contenues dans le tas
 
 public:
     Tas(){
@@ -23,7 +23,7 @@ public:
 
     V extraireMin();
     void add(V s);
-    int recherche(V s); //int pour donner la pos dans le vector
+    bool recherche(V s,int index); //int pour donner la pos dans le vector
 
     ~Tas();
 };

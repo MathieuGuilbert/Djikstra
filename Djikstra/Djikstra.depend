@@ -4,7 +4,7 @@
 	<fstream>
 	<assert.h>
 
-1546556760 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\graphe.hpp
+1546626076 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\graphe.hpp
 	<iostream>
 	<utility>
 	<vector>
@@ -12,12 +12,13 @@
 	"sommet.hpp"
 	"graphe.tpp"
 
-1546556128 source:c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\main.cpp
+1546704165 source:c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\main.cpp
 	<iostream>
 	"graphe.hpp"
 	"sommet.hpp"
+	"tas.hpp"
 
-1546550006 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\sommet.hpp
+1546619957 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\sommet.hpp
 	<iostream>
 	<utility>
 	<vector>
@@ -26,11 +27,19 @@
 1546548949 source:c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\sommet.cpp
 	"sommet.hpp"
 
-1546556785 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\graphe.tpp
+1546626063 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\graphe.tpp
 	<iostream>
 	<string>
 	<fstream>
 	<assert.h>
 
-1546556118 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\sommet.tpp
+1546622822 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\sommet.tpp
+
+1546703245 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\tas.hpp
+	<iostream>
+	<utility>
+	<vector>
+	"tas.tpp"
+
+1546704114 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\tas.tpp
 

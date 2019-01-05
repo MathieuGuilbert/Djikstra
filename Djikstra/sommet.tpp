@@ -25,7 +25,7 @@ bool Sommet<T> :: operator == ( Sommet<T> const & v ) const {
 template<class T>
 std :: ostream & operator << (std :: ostream & ost , Sommet<T> const & s) {
     ost << "( Numero : " << s.getNum() << " , ";
-	ost <<" Id : " << s.getId() << " ) \n";
+	ost <<" Id : " << s.getId() << " )";
 	return ost;
 }
 

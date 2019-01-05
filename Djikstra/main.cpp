@@ -1,15 +1,16 @@
 #include <iostream>
 # include "graphe.hpp"
 # include "sommet.hpp"
+# include "tas.hpp"
 
 
 using namespace std;
 
 int main()
 {
-    Graphe<int> g; //ça devrait marcher
+    Graphe<char,int> g; //ça devrait marcher
 
-    //Sommet<float> s(2,5.0);
+    //Sommet<float> s(2,5.0);  TODO pourquoi float et string marche pas ?
     Sommet<int> s(1,6);
     Sommet<int> s1(1,3);
 
@@ -17,33 +18,20 @@ int main()
     cout<<s<<endl;
     cout<<s1<<endl;
 
-	pair<int,Sommet<int> > p;
-	p.first=1; p.second=s1;
-    vector< pair<int,Sommet<int> > > v; v.push_back(p);
+	pair<char,Sommet<int> > p;
+	p.first='e'; p.second=s1;
+    vector< pair<char,Sommet<int> > > v;
+    v.push_back(p);
     g.add_sommet(s, v);
 
 	cout<<"Affichage de G : "<<endl;
     cout<<g<<endl;
 
-	/*
-	Graphe g=Graphe();
-	vector< pair<int,int> > v1=vector< pair<int,int> >();
-	g.add_sommet(1,v1);
-	vector< pair<int,int> > v2=vector< pair<int,int> >();
-
-	pair<int,int> p;
-	p.first=1;
-	p.second=1;
-	v2.push_back(p);
-
-	p.first=1;
-	p.second=2;
-	v2.push_back(p);
-
-	g.add_sommet(2,v2);
+    //test tas
+    Tas<int> t(3);
+    t.add(4);
+    cout<<t.extraireMin()<<endl;
+    cout<<t.extraireMin()<<endl;
 
 
-
-	cout<<g<<endl;
-	*/
 }

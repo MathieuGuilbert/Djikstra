@@ -7,6 +7,38 @@
 
 using namespace std;
 
+/*nul
+template<typename U,typename T>
+void Djikstra(Graphe<U,T> const graphe, Sommet<T> start){  //vas retourner un tas id
+
+    vector< pair <Sommet<T> , vector< pair<U,Sommet<T> > > > > g=graphe.getListe();
+    Tas<Sommet<T> > aTraite(start);
+    Tas<Sommet<T> > dejaTraite;
+    vector<U> dist(graphe.getSize() );
+
+    //Initialisation
+    for(unsigned int i = 0 ; i < graphe.getSize() ; i++ ){
+        if(g[i]==start){
+            dist[i]==0;
+
+        }
+
+        dist[i]=NULL;
+
+    }
+    dist[start.getNum()]=0;
+
+
+
+    while(!aTraite.estVide()){
+
+    }
+
+}
+
+*/
+
+
 int main()
 {
     Graphe<char,int> g; //ça devrait marcher
@@ -28,13 +60,16 @@ int main()
 	cout<<"Affichage de G : "<<endl;
     cout<<g<<endl;
 
-    //test tas
-    Tas<char> t('a');
-    t.add('c');
-    t.add('b');
-    //t.add(1);
+    /*//test tas  int/douche ect
+    Tas<double> t(3);
+    t.add(5);
+    t.add(4);
+    t.add(1);*/
 
-    if(t.recherche('c',0)){
+    Tas<Sommet<int> > t(s);
+    t.add(s1);
+
+    if(t.recherche(s,0)){
         cout<<"Prem "<<t.extraireMin()<<endl;
     }
     cout<<"deux "<<t.extraireMin()<<endl;

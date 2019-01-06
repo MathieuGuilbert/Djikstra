@@ -1,6 +1,13 @@
 # undef NDEBUG
 
+# include <assert.h>
+
 using namespace std ;
+
+template<class V>
+bool Tas<V>::estVide(){
+    return tab.empty() ;
+}
 
 template<class V>
 V Tas<V>::extraireMin(){
@@ -8,9 +15,8 @@ V Tas<V>::extraireMin(){
     tab.erase(tab.begin());
     cout<<"tb 1: "<<tab[1]<<endl;*/
 
-    if(tab.empty()){
-        throw string (" Le tas est vide "); // aussi possible avec assert
-        return NULL;
+    if(tab.empty()){                //peut enlever le if
+        assert(!tab.empty());
     }else{
         V res=this->tab[0];
 
@@ -19,7 +25,8 @@ V Tas<V>::extraireMin(){
             tab[0]=tab[tab.size()-1];
             tab.erase(tab.begin()+(tab.size()-1)); //ne pas oublier d'enlever un element
             int i=0;
-            unsigned int gauche, droit, mini, tmp;
+            unsigned int gauche, droit, mini;
+            V tmp;
 
             while(i!=(-1)){  //peut etre aussi fais avec une nouvelle méthode Tas<V>::Tri
                 gauche=2*i+1;
@@ -77,7 +84,7 @@ void Tas<V>::add(V s){
 
 
 template<class V>
-bool Tas<V>::recherche(V s,int index){   //O(n) Et non O(log n) => TODO
+bool Tas<V>::recherche(V s,int index){   //O(n)
     if(index>(tab.size()+1)){
         return false;
     }else{
@@ -100,5 +107,5 @@ bool Tas<V>::recherche(V s,int index){   //O(n) Et non O(log n) => TODO
 
 template<class V>
 Tas<V>::~Tas(){
-
+    //delete[] tab;   ??
 }

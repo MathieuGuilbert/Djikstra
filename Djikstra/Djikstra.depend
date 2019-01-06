@@ -12,14 +12,14 @@
 	"sommet.hpp"
 	"graphe.tpp"
 
-1546728718 source:c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\main.cpp
+1546788051 source:c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\main.cpp
 	<iostream>
 	"graphe.hpp"
 	"sommet.hpp"
 	"tas.hpp"
 	"tas_id.hpp"
 
-1546619957 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\sommet.hpp
+1546787922 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\sommet.hpp
 	<iostream>
 	<utility>
 	<vector>
@@ -34,7 +34,7 @@
 	<fstream>
 	<assert.h>
 
-1546622822 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\sommet.tpp
+1546789828 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\sommet.tpp
 
 1546727722 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\tas.hpp
 	<iostream>
@@ -42,7 +42,8 @@
 	<vector>
 	"tas.tpp"
 
-1546728287 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\tas.tpp
+1546789704 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\tas.tpp
+	<assert.h>
 
 1546728828 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\tas_id.hpp
 	<iostream>
@@ -50,5 +51,5 @@
 	<vector>
 	"tas_id.tpp"
 
-1546728801 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\tas_id.tpp
+1546728949 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\tas_id.tpp
 

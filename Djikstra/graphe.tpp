@@ -8,6 +8,16 @@
 using namespace std ;
 
 template<class U,class T>
+int Graphe<U,T>::getSize(){
+    return this->liste.size();
+}
+
+template<class U,class T>
+vector< pair <Sommet<T> , vector< pair<U,Sommet<T> > > > > Graphe<U,T>::getListe(){
+    return liste;
+}
+
+template<class U,class T>
 void Graphe<U,T>::add_sommet(Sommet<T> i,vector< pair<U,Sommet<T> > > voisins)
 {
     pair <Sommet<T>, vector< pair<U,Sommet<T> > > > p;

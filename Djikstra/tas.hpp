@@ -21,6 +21,8 @@ public:
         this->tab.push_back(s);
     }
 
+    bool estVide();
+
     V extraireMin();
     void add(V s);
     bool recherche(V s,int index); //int pour donner la pos dans le vector

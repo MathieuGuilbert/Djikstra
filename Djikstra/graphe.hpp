@@ -25,6 +25,9 @@ public:
         this->liste= vector< pair <Sommet<T>, vector< pair<U,Sommet<T> > > > >();
     }
 
+    int getSize();
+    vector< pair <Sommet<T> , vector< pair<U,Sommet<T> > > > > getListe();
+
 	void add_sommet(Sommet<T>,vector< pair<U,Sommet<T> > > voisins);
 	void add_arrete(Sommet<T> source, pair<U,Sommet<T> > arrete);
 

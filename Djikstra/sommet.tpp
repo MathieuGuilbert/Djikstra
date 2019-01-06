@@ -30,6 +30,26 @@ std :: ostream & operator << (std :: ostream & ost , Sommet<T> const & s) {
 }
 
 template<class T>
+bool Sommet<T> :: operator < ( Sommet<T> const & s ) const {
+	return (this->getId() < s.getId());
+}
+
+template<class T>
+bool Sommet<T> :: operator > ( Sommet<T> const & s ) const {
+	return (this->getId() > s.getId());
+}
+
+template<class T>
+bool Sommet<T> :: operator <= ( Sommet<T> const & s ) const {
+	return (this->getId() <= s.getId());
+}
+
+template<class T>
+bool Sommet<T> :: operator >= ( Sommet<T> const & s ) const {
+	return (this->getId() >= s.getId());
+}
+
+template<class T>
 Sommet<T>::~Sommet(){
 
 }

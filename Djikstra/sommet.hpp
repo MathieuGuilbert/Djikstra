@@ -22,6 +22,11 @@ public:
         this->num=num;
         this->id=id;
     }
+    Sommet(Sommet<T> const & s){
+        this->num=s.num;
+        this->id=s.id;
+
+    }
 
     int getNum() const;
     T getId() const;
@@ -29,6 +34,11 @@ public:
      bool operator == ( Sommet const & v ) const ;
 
      template <T> friend std :: ostream & operator << (std :: ostream & ost , Sommet<T> const & s);
+
+     bool operator < (Sommet<T> const & s ) const;
+     bool operator > (Sommet<T> const & s ) const;
+     bool operator <= (Sommet<T> const & s ) const;
+     bool operator >= (Sommet<T> const & s ) const;
 
     ~Sommet();
 };

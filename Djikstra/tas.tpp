@@ -20,7 +20,7 @@ V Tas<V>::extraireMin(){
     }else{
         V res=this->tab[0];
 
-        if(tab.size()>2){ //si il restera plus d'un élément dans le tas
+        if(tab.size()>2){ //si il restera plus d'un élément dans le tas apres extraction
 
             tab[0]=tab[tab.size()-1];
             tab.erase(tab.begin()+(tab.size()-1)); //ne pas oublier d'enlever un element
@@ -58,14 +58,14 @@ V Tas<V>::extraireMin(){
         }else{
             tab.erase(tab.begin());  //juste cela car pas besoin de trier si il n'y a pas plus d'un element
         }
-            return res;
+        return res;
     }
 }
 
 template<class V>
 void Tas<V>::add(V s){
     unsigned int i=this->tab.size();
-    while( i>0 && s<tab[(i-1)/2]){
+    while( i>0 && s<tab[(i-1)/2]){   //> OU >= ?
         if(i==tab.size()){
             V z=tab[(i-1)/2];
             tab.push_back(z); //car tab[i] existe pas encore

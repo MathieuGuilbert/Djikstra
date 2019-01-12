@@ -1,4 +1,5 @@
 #include <iostream>
+#include <map>
 # include "graphe.hpp"
 # include "sommet.hpp"
 # include "tas.hpp"
@@ -13,7 +14,8 @@ void Djikstra(Graphe<U,T> const graphe, Sommet<T> start){  //vas retourner un ta
 
     vector< pair <Sommet<T> , vector< pair<U,Sommet<T> > > > > g=graphe.getListe();
     Tas_id<Sommet<T> > aTraite(start);
-    Tas_id<Sommet<T> > dejaTraite;
+    //Tas_id<Sommet<T> > dejaTraite;
+    map<Sommet<T>, pair<int,Sommet<T> > > res; //associe sommet avec le poids et le sommet par lequel il passe pour atteindre strat
     vector<U> dist(graphe.getSize() );
 
     //Initialisation

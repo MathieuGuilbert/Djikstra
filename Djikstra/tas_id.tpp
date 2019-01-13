@@ -109,7 +109,7 @@ bool Tas_id<W,V>::maj(V s, W newDist){  // s est un sommet
     int posS=recherche(s);
     //cout<<"interieur maj; poid en param: "<<newDist<<" avec le sommet "<<s<<"; poid actuel: "<<tab[posS].getDist() <<endl;
 
-    //cout<<"quick s "<<tab[quick[s] ].getDist()<<endl;
+    cout<<s<<"quick s actuel "<<tab[quick[s] ].getDist()<<" new dist: " << newDist<<endl;
     if(tab[posS].getDist() > newDist){  //la val stocké doit changer
 
         tab[posS].setDist(newDist);
@@ -121,7 +121,7 @@ bool Tas_id<W,V>::maj(V s, W newDist){  // s est un sommet
             tab[(i-1)/2]=tab[i];
             quick[tab[i].getSom()]=(i-1)/2;
             tab[i]=tmp;
-            quick[tab[i].getSom()]=i;
+            quick[tab[i].getSom()]=(i-1)/2;  // ne pas mettre i solo
             i=(i-1)/2;
         }
         //cout<<"changement effectue"<<endl;

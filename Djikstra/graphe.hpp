@@ -28,7 +28,7 @@ public:
     int getSize() const;
     vector< pair <Sommet<T> , vector< pair<U,Sommet<T> > > > > getListe() const;
 
-	void add_sommet(Sommet<T>,vector< pair<U,Sommet<T> > > voisins);
+	void add_sommet(Sommet<T> i,vector< pair<U,Sommet<T> > > voisins);
 	void add_arrete(Sommet<T> source, pair<U,Sommet<T> > arrete);
 
 	void suppr_sommet(Sommet<T> sommet);

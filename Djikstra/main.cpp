@@ -41,6 +41,10 @@ map<Sommet<T>, pair<int,Sommet<T> > > Djikstra(Graphe<U,T> const graphe, Sommet<
             res[voisinsTmp[k].second]=pair<int,Sommet<T> >( aTraite.getTab()[aTraite.getQuick()[voisinsTmp[k].second] ].getDist() ,minTmp); //gros truc pour recu la dist dans le couple du voisins dans k
         }
     }
+    for(map< Sommet<char>, pair<int,Sommet<char> > >::const_iterator it = res.begin(); it != res.end(); ++it){
+        std::cout <<" Sommet :"<< it->first << ", Poids : " << it->second.first << ", Sommet precedent :" << it->second.second<< endl;
+    }
+    cout<<"avec le som"<<minTmp<<"\n"<< endl;
 
     pair <Sommet<T> , vector< pair<U,Sommet<T> > > > tmp;
     int i;
@@ -56,14 +60,21 @@ map<Sommet<T>, pair<int,Sommet<T> > > Djikstra(Graphe<U,T> const graphe, Sommet<
             i++;
         }
         voisinsTmp=tmp.second;
+        cout<<"nb voisins "<<voisinsTmp.size()<<endl;
         //mise à jour des voisins de minTmp
         for(unsigned int k=0; k<voisinsTmp.size(); k++){
-            if( aTraite.maj(voisinsTmp[k].second,res[minTmp].first+voisinsTmp[k].first)){ //poids jusqu'a tmp+poid entre tmp et g[k]
+            cout<<k<<" ieme boucle deb "<<res[voisinsTmp[k].second].first<<endl;
+            if( aTraite.maj(voisinsTmp[k].second,res[minTmp].first+voisinsTmp[k].first) ){ //poids jusqu'a tmp+poid entre tmp et g[k]
+                cout<<k<<" ieme boucle valide pour "<<voisinsTmp[k].second<<endl;
                 //modif res
-                //cout<<"test getquickvoisinstmpk.second"<<(aTraite.getTab()[aTraite.getQuick()[voisinsTmp[k].second] ].getDist())<<endl;
                 res[voisinsTmp[k].second]=pair<int,Sommet<T> >(aTraite.getTab()[aTraite.getQuick()[voisinsTmp[k].second] ].getDist(),minTmp);
             }
         }
+        for(map< Sommet<char>, pair<int,Sommet<char> > >::const_iterator it = res.begin(); it != res.end(); ++it){
+            std::cout <<" Sommet :"<< it->first << ", Poids : " << it->second.first << ", Sommet precedent :" << it->second.second<< endl;
+        }
+        cout<<"avec le som"<<minTmp<<"\n"<< endl;
+
     }
     return res;
 }

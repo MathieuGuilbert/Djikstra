@@ -107,9 +107,12 @@ int Tas_id<W,V>::recherche(V s){   //O(1)
 template<class W, class V>
 bool Tas_id<W,V>::maj(V s, W newDist){  // s est un sommet
     int posS=recherche(s);
-    if(tab[posS].getDist() > newDist){  //la val stocké doit changer
-        tab[posS].setDist(newDist);
+    //cout<<"interieur maj; poid en param: "<<newDist<<" avec le sommet "<<s<<"; poid actuel: "<<tab[posS].getDist() <<endl;
 
+    //cout<<"quick s "<<tab[quick[s] ].getDist()<<endl;
+    if(tab[posS].getDist() > newDist){  //la val stocké doit changer
+
+        tab[posS].setDist(newDist);
         Couple<W,V> c=tab[posS];
         Couple<W,V> tmp;
         unsigned int i=posS;
@@ -118,10 +121,11 @@ bool Tas_id<W,V>::maj(V s, W newDist){  // s est un sommet
             tab[(i-1)/2]=tab[i];
             quick[tab[i].getSom()]=(i-1)/2;
             tab[i]=tmp;
-            quick[tab[(i-1)/2].getSom()]=i;
+            quick[tab[i].getSom()]=i;
             i=(i-1)/2;
         }
-
+        //cout<<"changement effectue"<<endl;
+        //cout<<"quick s "<<tab[quick[s] ].getDist()<<endl;
         return true;
     }
     return false;

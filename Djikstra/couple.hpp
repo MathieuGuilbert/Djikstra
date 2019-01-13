@@ -23,6 +23,7 @@ private:
 
 public:
     Couple(){
+
     }
     Couple(U d, T s){
         dist=d;

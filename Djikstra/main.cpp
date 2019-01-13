@@ -34,9 +34,11 @@ map<Sommet<T>, pair<int,Sommet<T> > > Djikstra(Graphe<U,T> const graphe, Sommet<
     }
     //mise à jour des voisins de start
     for(unsigned int k=0; k<voisinsTmp.size(); k++){
+        //cout<<"for voisin start; voisin numero "<<k<<"; mintmp "<<minTmp<<" ;sommet voisin: "<<voisinsTmp[k].second <<" atteint avec le poid "<<voisinsTmp[k].first <<endl;
         if( aTraite.maj(voisinsTmp[k].second,voisinsTmp[k].first)){
             //modif res
-            res[voisinsTmp[k].second]=pair<int,Sommet<T> >(aTraite.getQuick()[voisinsTmp[k].second],minTmp);
+            //cout<<"Dans maj du "<<k<<" "<<aTraite.getQuick()[voisinsTmp[k].second]<<endl;
+            res[voisinsTmp[k].second]=pair<int,Sommet<T> >( aTraite.getTab()[aTraite.getQuick()[voisinsTmp[k].second] ].getDist() ,minTmp); //gros truc pour recu la dist dans le couple du voisins dans k
         }
     }
 
@@ -57,9 +59,10 @@ map<Sommet<T>, pair<int,Sommet<T> > > Djikstra(Graphe<U,T> const graphe, Sommet<
         //mise à jour des voisins de minTmp
         for(unsigned int k=0; k<voisinsTmp.size(); k++){
             if( aTraite.maj(voisinsTmp[k].second,res[minTmp].first+voisinsTmp[k].first)){ //poids jusqu'a tmp+poid entre tmp et g[k]
-            //modif res
-            res[voisinsTmp[k].second]=pair<int,Sommet<T> >(aTraite.getQuick()[voisinsTmp[k].second],minTmp);
-        }
+                //modif res
+                //cout<<"test getquickvoisinstmpk.second"<<(aTraite.getTab()[aTraite.getQuick()[voisinsTmp[k].second] ].getDist())<<endl;
+                res[voisinsTmp[k].second]=pair<int,Sommet<T> >(aTraite.getTab()[aTraite.getQuick()[voisinsTmp[k].second] ].getDist(),minTmp);
+            }
         }
     }
     return res;
@@ -70,7 +73,10 @@ map<Sommet<T>, pair<int,Sommet<T> > > Djikstra(Graphe<U,T> const graphe, Sommet<
 
 int main()
 {
-    Graphe<int,int> g; //ça devrait marcher
+
+    /*
+    //cout<<" 5 div 2"<<5/2<<endl;
+    Graphe<int,int> g;
 
     //Sommet<float> s(2,5.0);  TODO pourquoi float et string marche pas ?
     Sommet<int> s(1,6);
@@ -86,7 +92,7 @@ int main()
 	p.first=4;
     p.second=s1;
 
-    //s1
+    //s
     vector< pair<int,Sommet<int> > > v;
     v.push_back(p);
     v.push_back(pair<int,Sommet<int> >(6,s2));
@@ -97,14 +103,68 @@ int main()
     v1.push_back(pair<int,Sommet<int> >(1,s2));
     g.add_sommet(s1,v1);
 
+    //s2
+    g.add_sommet(s2,vector< pair<int,Sommet<int> > >());
+
 	cout<<"Affichage de G : "<<endl;
     cout<<g<<endl;
 
     map<Sommet<int>, pair<int,Sommet<int> > > test=Djikstra(g,s);
+
     cout<<"Djikstra sur G, a partir de S (1,6) :"<<endl;
     for(map<Sommet<int>, pair<int,Sommet<int> > >::const_iterator it = test.begin(); it != test.end(); ++it){
-    std::cout <<" Sommet :"<< it->first << ", Int : " << it->second.first << ", Sommet :" << it->second.second << endl;
+        std::cout <<" Sommet :"<< it->first << ", Poids : " << it->second.first << ", Sommet precedent :" << it->second.second << endl;
     }
+    */
+
+
+    //EXEMPLE SUJET
+    Graphe<int,char> g;
+
+    Sommet<char> s1(1,'A');
+    Sommet<char> s2(2,'B');
+    Sommet<char> s3(3,'C');
+    Sommet<char> s4(4,'D');
+    Sommet<char> s5(5,'E');
+    Sommet<char> s6(6,'F');
+    Sommet<char> s7(7,'G');
+
+    g.add_sommet(s1,vector< pair<int,Sommet<char> > >()); //A lié à rien
+
+    vector< pair<int,Sommet<char> > > v2;
+    v2.push_back(pair<int,Sommet<char> >(2,s7));  //B--G
+    v2.push_back(pair<int,Sommet<char> >(5,s1));  //B--A
+    g.add_sommet(s2,v2);
+
+    vector< pair<int,Sommet<char> > > v7;
+    v7.push_back(pair<int,Sommet<char> >(1,s1));  //G--A
+    v7.push_back(pair<int,Sommet<char> >(32,s4));  //G--D
+    v7.push_back(pair<int,Sommet<char> >(3,s5));  //G--E
+    g.add_sommet(s7,v7);
+
+    vector< pair<int,Sommet<char> > > v5;
+    v5.push_back(pair<int,Sommet<char> >(7,s3));  //E--C
+    g.add_sommet(s5,v5);
+
+    vector< pair<int,Sommet<char> > > v3;
+    v3.push_back(pair<int,Sommet<char> >(8,s6));  //C--F
+    g.add_sommet(s3,v3);
+
+    vector< pair<int,Sommet<char> > > v6;
+    v6.push_back(pair<int,Sommet<char> >(5,s4));  //F--D
+    g.add_sommet(s6,v6);
+
+    g.add_sommet(s4,vector< pair<int,Sommet<char> > >()); //D lie a rien
+
+
+    map<Sommet<char>, pair<int,Sommet<char> > > exSuj=Djikstra(g,s2);
+
+    cout<<"Djikstra sur G, a partir de S (2,B) :"<<endl;
+    for(map<Sommet<char>, pair<int,Sommet<char> > >::const_iterator it = exSuj.begin(); it != exSuj.end(); ++it){
+        std::cout <<" Sommet :"<< it->first << ", Poids : " << it->second.first << ", Sommet precedent :" << it->second.second << endl;
+    }
+
+
 
     //test tas  int/douche ect
     /*Tas<double> t(3);

@@ -35,6 +35,7 @@ public:
         quick.insert(pair<V, int>(c.getSom() ,0));
     }
 
+
     vector< Couple<W,V> > getTab() const;
     map<V, int> getQuick() const;
     bool estVide();

@@ -16,6 +16,7 @@ private:
 public:
     Sommet(){
         this->num=0;
+
     }
     Sommet(int num, T id){
         this->num=num;

@@ -12,9 +12,10 @@
 	"sommet.hpp"
 	"graphe.tpp"
 
-1547415192 source:c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\main.cpp
+1547418591 source:c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\main.cpp
 	<iostream>
 	<map>
+	<limits>
 	"graphe.hpp"
 	"sommet.hpp"
 	"couple.hpp"
@@ -30,7 +31,7 @@
 1546548949 source:c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\sommet.cpp
 	"sommet.hpp"
 
-1547384886 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\graphe.tpp
+1547418451 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\graphe.tpp
 	<iostream>
 	<string>
 	<fstream>
@@ -56,7 +57,7 @@
 	"couple.hpp"
 	"tas_id.tpp"
 
-1547415654 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\tas_id.tpp
+1547418609 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\tas_id.tpp
 	<assert.h>
 
 1547391277 c:\users\registered user\desktop\fac\progimperative\djikstra\djikstra\couple.hpp

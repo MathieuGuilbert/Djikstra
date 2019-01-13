@@ -123,5 +123,5 @@ std :: ostream & operator << (std :: ostream & ost , Graphe<U,T> const & g){
 template<class U,class T>
 Graphe<U,T>::~Graphe()
 {
-
+    //delete(liste);
 }

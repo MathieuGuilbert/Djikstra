@@ -22,10 +22,8 @@ private:
 	T som;
 
 public:
-    /*Couple(){
-        dist=NULL;
-        som=NULL;
-    }*/
+    Couple(){
+    }
     Couple(U d, T s){
         dist=d;
         som=s;

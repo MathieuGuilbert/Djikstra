@@ -80,6 +80,7 @@ int main()
 	cout<<"Affichage des sommets : "<<endl;
     cout<<s<<endl;
     cout<<s1<<endl;
+    cout<<s2<<endl;
 
 	pair<int,Sommet<int> > p;
 	p.first=4;
@@ -100,6 +101,10 @@ int main()
     cout<<g<<endl;
 
     map<Sommet<int>, pair<int,Sommet<int> > > test=Djikstra(g,s);
+    cout<<"Djikstra sur G, a partir de S (1,6) :"<<endl;
+    for(map<Sommet<int>, pair<int,Sommet<int> > >::const_iterator it = test.begin(); it != test.end(); ++it){
+    std::cout <<" Sommet :"<< it->first << ", Int : " << it->second.first << ", Sommet :" << it->second.second << endl;
+    }
 
     //test tas  int/douche ect
     /*Tas<double> t(3);

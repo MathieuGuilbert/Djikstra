@@ -6,7 +6,7 @@ CFLAGS := -std=c++98 -Wall -Wextra -pedantic -ggdb
 # règle de compilation --- exécutables
 all : graphe
 
-graphe : main.cpp graphe.o sommet.o
+graphe : main.cpp graphe.hpp sommet.hpp tas.hpp tas_id.hpp couple.hpp
 	$(CC) $(CFLAGS) -o $@ $^
 
 %.o: %.cpp

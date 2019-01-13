@@ -8,12 +8,12 @@
 using namespace std ;
 
 template<class U,class T>
-int Graphe<U,T>::getSize(){
+int Graphe<U,T>::getSize() const{
     return this->liste.size();
 }
 
 template<class U,class T>
-vector< pair <Sommet<T> , vector< pair<U,Sommet<T> > > > > Graphe<U,T>::getListe(){
+vector< pair <Sommet<T> , vector< pair<U,Sommet<T> > > > > Graphe<U,T>::getListe() const{
     return liste;
 }
 

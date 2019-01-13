@@ -7,34 +7,44 @@
 #include <iterator>
 #include <map>
 
+# include "couple.hpp"
+
 using namespace std ;
 
-template<class V> class Tas_id {
+template<class W, class V> class Tas_id {
 
 private:
-   vector< V > tab; //tableau des données contenues dans le tas
+   vector< Couple<W,V> > tab; //tableau des données contenues dans le tas
    map<V, int> quick;   //les sommet seront ainsi associés à leur position dans le vector
 
 public:
     Tas_id(){
-        this->tab=vector<V>();
+        this->tab=vector< Couple<W,V> >();
         quick=map<V, int>();
     }
     Tas_id(V s){
-        this->tab=vector<V>();
+        this->tab=vector<Couple<W,V> >();
         //quick=map<int, V>();  Besoin de declarer ?
-        this->tab.push_back(s);
+        this->tab.push_back(Couple<W,V>(NULL, s));
         quick.insert(pair<V, int>(s,0));
     }
+    Tas_id(Couple<W,V> c){
+        this->tab=vector<Couple<W,V> >();
+        //quick=map<int, V>();  Besoin de declarer ?
+        this->tab.push_back(c);
+        quick.insert(pair<V, int>(c.getSom() ,0));
+    }
 
-    vector< V > getTab() const;
+    vector< Couple<W,V> > getTab() const;
     map<V, int> getQuick() const;
     bool estVide();
 
 
-    V extraireMin();
-    void add(V s);
-    bool recherche(V s);
+    Couple<W,V> extraireMin();
+    void add(Couple<W,V> s);
+    int recherche(V s);
+
+    bool maj(V s, W newDist);
 
     ~Tas_id();
 };

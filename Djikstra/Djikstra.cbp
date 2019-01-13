@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="couple.hpp" />
+		<Unit filename="couple.tpp" />
 		<Unit filename="graphe.hpp" />
 		<Unit filename="graphe.tpp" />
 		<Unit filename="main.cpp" />

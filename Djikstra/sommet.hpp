@@ -32,6 +32,7 @@ public:
     T getId() const;
 
      bool operator == ( Sommet const & v ) const ;
+     bool operator != ( Sommet const & v ) const ;
 
      template <T> friend std :: ostream & operator << (std :: ostream & ost , Sommet<T> const & s);
 

@@ -4,38 +4,38 @@
 
 using namespace std ;
 
-template<class V>
-vector<V> Tas_id<V>::getTab() const{
+template<class W, class V>
+vector< Couple<W,V> > Tas_id<W,V>::getTab() const{
+    return this->tab;
+}
+
+template<class W, class V>
+map<V, int> Tas_id<W,V>::getQuick() const{
     return quick;
 }
 
-template<class V>
-map<V, int> Tas_id<V>::getQuick() const{
-    return quick;
-}
-
-template<class V>
-bool Tas_id<V>::estVide(){
+template<class W, class V>
+bool Tas_id<W,V>::estVide(){
     return tab.empty() ;
 }
 
 
-template<class V>
-V Tas_id<V>::extraireMin(){
+template<class W, class V>
+Couple<W,V> Tas_id<W,V>::extraireMin(){
 
     assert(!tab.empty());
 
-    V res=this->tab[0];
-    quick.erase(res);
+    Couple<W,V> res=this->tab[0];
+    quick.erase(res.getSom());
 
     if(tab.size()>1){ //si il restera quelque chose dans le tas apres extraction
         tab[0]=tab[tab.size()-1];
-        quick[tab[0]]=0;  //MAJ de position
+        quick[tab[0].getSom()]=0;  //MAJ de position
         tab.erase(tab.begin()+(tab.size()-1)); //ne pas oublier d'enlever un element
 
         int i=0;
         unsigned int gauche, droit, mini;
-        V tmp;
+        Couple<W,V> tmp;
 
         while(i!=(-1)){  //peut etre aussi fais avec une nouvelle méthode Tas<V>::Tri
             gauche=2*i+1;
@@ -58,9 +58,9 @@ V Tas_id<V>::extraireMin(){
             if(tab[i]>tab[mini]){
                 tmp=tab[mini];
                 tab[mini]=tab[i];
-                quick[tab[i]]=mini;
+                quick[tab[i].getSom()]=mini;
                 tab[i]=tmp;
-                quick[tab[mini]]=i;
+                quick[tab[mini].getSom()]=i;
                 i=mini;
             }else{
                 i=-1;
@@ -74,17 +74,17 @@ V Tas_id<V>::extraireMin(){
 
 
 
-template<class V>
-void Tas_id<V>::add(V s){
+template<class W, class V>
+void Tas_id<W,V>::add(Couple<W,V> s){
     unsigned int i=this->tab.size();
     while( i>0 && s<tab[(i-1)/2]){    //> OU >= ?
         if(i==tab.size()){
-            V z=tab[(i-1)/2];
+            Couple<W,V> z=tab[(i-1)/2];
             tab.push_back(z); //car tab[i] n'existe pas encore
         }else{
             tab[i]=tab[(i-1)/2];
         }
-        quick[tab[(i-1)/2]]=i; //changer dans la map la positon du sommet déplacé
+        quick[tab[(i-1)/2].getSom()]=i; //changer dans la map la positon du sommet déplacé
         i=((i-1)/2);
     }
     if(i==tab.size()){      //car tab[i] n'existe pas encore
@@ -92,23 +92,44 @@ void Tas_id<V>::add(V s){
     }else{
         tab[i]=s;
     }
-    quick.insert(pair<V, int>(s,i));
+    quick.insert(pair<V, int>(s.getSom() ,i));
 
     /*tab.push_back(s);
     cout<<"taille tab"<<tab.size()<<endl;*/
 }
 
 
-template<class V>
-bool Tas_id<V>::recherche(V s){   //O(n)
-    if(quick.find(s) != quick.end()){
+template<class W, class V>
+int Tas_id<W,V>::recherche(V s){   //O(1)
+    return quick[s];
+}
+
+template<class W, class V>
+bool Tas_id<W,V>::maj(V s, W newDist){  // s est un sommet
+    int posS=recherche(s);
+    if(tab[posS].getDist() > newDist){  //la val stocké doit changer
+        tab[posS].setDist(newDist);
+
+        Couple<W,V> c=tab[posS];
+        Couple<W,V> tmp;
+        unsigned int i=posS;
+        while( i>0 && c<tab[(i-1)/2] ){
+            tmp=tab[(i-1)/2];
+            tab[(i-1)/2]=tab[i];
+            quick[tab[i].getSom()]=(i-1)/2;
+            tab[i]=tmp;
+            quick[tab[(i-1)/2].getSom()]=i;
+            i=(i-1)/2;
+        }
+
         return true;
     }
     return false;
 }
 
 
-template<class V>
-Tas_id<V>::~Tas_id(){
+
+template<class W, class V>
+Tas_id<W,V>::~Tas_id(){
 
 }
